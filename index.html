@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>喫煙OK喫茶店マップ｜地域別まとめ</title>
+  <meta name="description" content="地域ごとの全面喫煙可能・喫煙スペースがある喫茶店を地図と一覧で探せます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- OG -->
+  <meta property="og:title" content="喫煙OK喫茶店マップ｜地域別まとめ">
+  <meta property="og:description" content="地域ごとの全面喫煙可能・喫煙スペースがある喫茶店を地図と一覧で探せます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="./assets/og.png">
+  <script defer src="./app.js"></script>
+  <script>window.ASSOC='lifeisg-22'</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "喫煙OK喫茶店マップ",
+    "url": "",
+    "description": "地域ごとの喫煙可能な喫茶店を検索できるサイト",
+    "inLanguage": "ja"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1><a class="brand" href="./">喫煙OK喫茶店マップ</a></h1>
+      <nav class="top-nav">
+        <a href="#shops">店舗一覧</a>
+        <a href="#map">地図</a>
+        <a href="./features/">特集</a>
+        <a href="./privacy.html">プライバシー</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>愛煙家のための、地域別カフェガイド</h2>
+      <p>全面喫煙可・喫煙ブースありの喫茶店だけを厳選。地図・駅・設備でサクッと検索。</p>
+      <div class="affiliate-strip">
+        <span>自宅でも喫茶店気分に。</span>
+        <a class="btn btn-aff" target="_blank" rel="nofollow sponsored noopener" href="https://www.amazon.co.jp/s?k=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC&tag=lifeisg-22">コーヒーフィルター</a>
+        <a class="btn btn-aff" target="_blank" rel="nofollow sponsored noopener" href="https://www.amazon.co.jp/s?k=%E6%90%BA%E5%B8%AF%E7%81%AB%E7%AE%A1&tag=lifeisg-22">携帯灰皿</a>
+        <a class="btn btn-aff" target="_blank" rel="nofollow sponsored noopener" href="https://www.amazon.co.jp/s?k=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%9F%E3%83%AB&tag=lifeisg-22">コーヒーミル</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mapwrap">
+    <div id="map" aria-label="地図で探す"></div>
+  </section>
+
+  <main class="container" id="shops">
+    <aside class="filters" aria-label="検索フィルター">
+      <div class="filter-row">
+        <label for="area">地域</label>
+        <select id="area"><option value="">すべて</option></select>
+      </div>
+      <div class="filter-row">
+        <label for="query">キーワード</label>
+        <input id="query" type="search" placeholder="店名・駅名・特徴で検索（例：喫煙ブース、Wi-Fi）">
+      </div>
+      <div class="filter-row check-row">
+        <label><input type="checkbox" id="onlyFullSmoke"> 全面喫煙可のみ</label>
+        <label><input type="checkbox" id="hasWifi"> Wi-Fiあり</label>
+        <label><input type="checkbox" id="hasPower"> 電源あり</label>
+        <label><input type="checkbox" id="hasParking"> 駐車場</label>
+      </div>
+      <div class="filter-row">
+        <label for="sort">並び替え</label>
+        <select id="sort">
+          <option value="score">おすすめ順</option>
+          <option value="rating">評価が高い順</option>
+          <option value="reviews">口コミが多い順</option>
+          <option value="updated">更新が新しい順</option>
+        </select>
+      </div>
+      <button id="reset" class="btn btn-ghost">リセット</button>
+    </aside>
+
+    <section class="results">
+      <div id="count" class="count"></div>
+      <div id="cards" class="cards" role="list"></div>
+    </section>
+  </main>
+
+  <section class="container" id="faq" aria-label="よくある質問">
+    <h3>FAQ</h3>
+    <details>
+      <summary>紹介料はリンク先の商品以外の購入でも発生しますか？</summary>
+      <p>リンククリック後24時間以内に購入した商品すべてが対象です。また、クリック後にカートへ追加した商品は、追加日から89日以内の購入が対象になります（その商品に限る）。</p>
+    </details>
+    <details>
+      <summary>情報はどのくらい正確ですか？</summary>
+      <p>掲載内容は調査時点の情報で、店舗の方針により変更される場合があります。必ず最新の店頭表示・公式情報をご確認ください。<br>最終更新日: 2025-08-14</p>
+    </details>
+    <p class="notice">当サイトはアフィリエイト広告（Amazonアソシエイト含む）を利用しています。</p>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> 喫煙OK喫茶店マップ｜地域別まとめ</small>
+      <nav class="footer-nav">
+        <a href="./privacy.html">プライバシー</a>
+        <a href="./disclaimer.html">免責事項</a>
+        <a href="mailto:contact@example.com">お問い合わせ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <template id="card-tpl">
+    <article class="card shop" role="listitem">
+      <div class="badge" data-smoking></div>
+      <div class="card-body">
+        <div class="thumb"><img loading="lazy" alt=""></div>
+        <div class="info">
+          <h4 class="name"></h4>
+          <div class="meta">
+            <span class="area"></span>
+            <span class="rating" aria-label="星評価"></span>
+            <span class="features"></span>
+          </div>
+          <p class="desc"></p>
+          <div class="actions">
+            <a class="btn btn-outline map" target="_blank" rel="noopener">地図</a>
+            <a class="btn btn-outline site" target="_blank" rel="noopener">公式</a>
+            <a class="btn aff coffee" target="_blank" rel="nofollow sponsored noopener">コーヒー豆</a>
+            <a class="btn aff ashtray" target="_blank" rel="nofollow sponsored noopener">携帯灰皿</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+</body>
+</html>
