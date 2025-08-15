@@ -1,73 +1,65 @@
 {
   "shops": [
     {
-      "name": "純喫茶 みしま",
-      "area": "静岡県三島市",
-      "station": "三島駅",
+      "name": "純喫茶 青葉",
+      "area": "静岡県静岡市",
+      "station": "静岡駅",
       "smoking": "全面喫煙可",
-      "features": [
-        "Wi-Fi",
-        "電源",
-        "駐車場"
-      ],
-      "rating": 4.1,
-      "reviews": 87,
-      "desc": "昔ながらの純喫茶。分厚いホットケーキと深煎りブレンドが人気。店内は全面喫煙可で、換気も良好。",
-      "mapUrl": "https://maps.google.com/?q=三島駅+喫茶",
-      "siteUrl": "",
-      "photo": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop",
-      "aff": {
-        "coffee": "https://www.amazon.co.jp/s?k=%E6%B7%B1%E7%85%8E%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89&tag=lifeisg-22",
-        "ashtray": "https://www.amazon.co.jp/s?k=%E6%90%BA%E5%B8%AF%E7%81%AB%E7%AE%A1+%E3%82%B7%E3%83%BC%E3%83%AB&tag=lifeisg-22"
-      },
-      "updated": "2025-08-14",
-      "id": "mishima-001",
-      "lat": 35.126,
-      "lng": 138.914
-    },
-    {
-      "name": "喫茶 ぬまづ館",
-      "area": "静岡県沼津市",
-      "station": "沼津駅",
-      "smoking": "全面喫煙可",
-      "features": [
-        "Wi-Fi"
-      ],
-      "rating": 3.9,
-      "reviews": 45,
-      "desc": "昭和レトロな雰囲気。アイスコーヒーとナポリタンが名物。カウンター中心で一人でも入りやすい。",
-      "mapUrl": "https://maps.google.com/?q=沼津駅+喫茶",
-      "siteUrl": "",
-      "photo": "https://images.unsplash.com/photo-1445077100181-a33e9ac94db0?q=80&w=1200&auto=format&fit=crop",
-      "aff": {
-        "coffee": "https://www.amazon.co.jp/s?k=%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E3%83%9F%E3%83%AB&tag=lifeisg-22"
-      },
-      "updated": "2025-08-14",
-      "id": "numazu-001",
-      "lat": 35.103,
-      "lng": 138.862
-    },
-    {
-      "name": "喫茶 桜小路",
-      "area": "静岡県裾野市",
-      "station": "裾野駅",
-      "smoking": "喫煙ブースあり",
-      "features": [
-        "電源"
-      ],
+      "features": ["Wi-Fi", "電源"],
       "rating": 4.3,
-      "reviews": 120,
-      "desc": "手作りプリンが絶品。喫煙ブースは広めでゆったり座れる。",
-      "mapUrl": "https://maps.google.com/?q=裾野駅+喫茶",
+      "reviews": 112,
+      "desc": "深煎りの喫茶店ブレンドと厚切りバタートースト。全面喫煙可。",
+      "mapUrl": "https://maps.google.com/?q=静岡駅+喫茶",
       "siteUrl": "",
-      "photo": "https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1200&auto=format&fit=crop",
+      "photo": "https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1200&auto=format&fit=crop",
       "aff": {
-        "ashtray": "https://www.amazon.co.jp/s?k=%E6%90%BA%E5%B8%AF%E7%81%AB%E7%AE%A1&tag=lifeisg-22"
+        "coffee": "https://www.amazon.co.jp/s?k=喫茶店+ブレンド&tag=lifeisg-22",
+        "ashtray": "https://www.amazon.co.jp/s?k=携帯灰皿&tag=lifeisg-22"
       },
-      "updated": "2025-08-14",
-      "id": "susono-001",
-      "lat": 35.173,
-      "lng": 138.912
+      "updated": "2025-08-15",
+      "id": "szk-001",
+      "lat": 34.974,
+      "lng": 138.383
+    },
+    {
+      "name": "喫茶 はま風",
+      "area": "静岡県浜松市",
+      "station": "浜松駅",
+      "smoking": "喫煙ブースあり",
+      "features": ["電源", "駐車場"],
+      "rating": 4.1,
+      "reviews": 76,
+      "desc": "ゆったり席でブレンドが人気。広めの喫煙ブースあり。",
+      "mapUrl": "https://maps.google.com/?q=浜松駅+喫茶",
+      "siteUrl": "",
+      "photo": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1200&auto=format&fit=crop",
+      "aff": {
+        "coffee": "https://www.amazon.co.jp/s?k=深煎り+ブレンド&tag=lifeisg-22"
+      },
+      "updated": "2025-08-15",
+      "id": "hmmt-001",
+      "lat": 34.703,
+      "lng": 137.734
+    },
+    {
+      "name": "珈琲 ふじの樹",
+      "area": "静岡県富士市",
+      "station": "富士駅",
+      "smoking": "全面喫煙可",
+      "features": ["Wi-Fi"],
+      "rating": 4.0,
+      "reviews": 58,
+      "desc": "濃い目のブレンドが好評。昔ながらの内装で全面喫煙可。",
+      "mapUrl": "https://maps.google.com/?q=富士駅+喫茶",
+      "siteUrl": "",
+      "photo": "https://images.unsplash.com/photo-1496404675642-74d618a8ee37?q=80&w=1200&auto=format&fit=crop",
+      "aff": {
+        "ashtray": "https://www.amazon.co.jp/s?k=携帯灰皿+フタ付き&tag=lifeisg-22"
+      },
+      "updated": "2025-08-15",
+      "id": "fuji-001",
+      "lat": 35.161,
+      "lng": 138.682
     }
   ]
 }
