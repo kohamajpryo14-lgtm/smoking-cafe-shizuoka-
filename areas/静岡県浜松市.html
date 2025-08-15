@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静岡県浜松市の喫茶店一覧 | 喫煙カフェガイド</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="../index.html">喫煙カフェガイド</a></h1>
+      <nav>
+        <a href="../index.html">ホーム</a>
+        <a href="../features/index.html">特集</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>静岡県浜松市の喫茶店</h2>
+    <div id="shop-list"></div>
+    <div id="map" style="height:500px;"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 喫煙カフェガイド</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    fetch('../data/shops.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('shop-list');
+        const map = L.map('map').setView([34.7108, 137.7261], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        data.shops
+          .filter(shop => shop.city === '静岡県浜松市')
+          .forEach(shop => {
+            const div = document.createElement('div');
+            div.className = 'shop-card';
+            div.innerHTML = `
+              <h3>${shop.name}</h3>
+              <p>${shop.address}</p>
+              <p>${shop.features.join(' / ')}</p>
+            `;
+            container.appendChild(div);
+
+            if (shop.lat && shop.lng) {
+              L.marker([shop.lat, shop.lng]).addTo(map)
+                .bindPopup(`<b>${shop.name}</b><br>${shop.address}`);
+            }
+          });
+      });
+  </script>
+</body>
+</html>
